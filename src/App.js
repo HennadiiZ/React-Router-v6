@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Routes } from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
@@ -10,7 +10,7 @@ function App() {
     <div>
       <MainHeader />
       <main>
-
+      {/* 
         <Switch>
           <Route path="/welcome">
             <Welcome />
@@ -23,7 +23,14 @@ function App() {
           <Route path="/products/:productId">
             <ProductDetail />
           </Route>
-        </Switch>
+        </Switch> */}
+
+        <Routes>
+          <Route path="/welcome" element={ <Welcome />} />
+          {/* <Route path="/products" element={ <Products />} /> */}
+          <Route path="/products/*" element={ <Products />} />
+          <Route path="/products/:productId" element={ <ProductDetail /> } />
+        </Routes>
 
       </main>
     </div>
@@ -32,3 +39,5 @@ function App() {
 
 export default App;
   
+// npm i -D react-router-dom@latest
+// npm install react-router-dom@6
